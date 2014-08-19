@@ -60,6 +60,7 @@ TODO:
 Economy
 -------
 
+Removed all adjacency from Storage - Mass Extractor relationship
 
 ... Lots more changes incoming.
 
