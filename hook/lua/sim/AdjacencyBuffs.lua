@@ -1,7 +1,18 @@
--- Removed size 4 mass storage adjacency
-T1MassStorageAdjacencyBuffs = {
-    'T1MassStorageMassProductionBonusSize8',
-    'T1MassStorageMassProductionBonusSize12',
-    'T1MassStorageMassProductionBonusSize16',
-    'T1MassStorageMassProductionBonusSize20',
+-- Removed size 4 Mass Storage adjacency with Mass Extractors
+BuffBlueprint {
+    Name = 'T1MassStorageMassProductionBonusSize4',
+    DisplayName = 'T1MassStorageMassProductionBonus',
+    BuffType = 'MASSBUILDBONUS',
+    Stacks = 'ALWAYS',
+    Duration = -1,
+    EntityCategory = 'STRUCTURE SIZE4 MASSFABRICATION',
+    BuffCheckFunction = AdjBuffFuncs.MassProductionBuffCheck,
+    OnBuffAffect = AdjBuffFuncs.MassProductionBuffAffect,
+    OnBuffRemove = AdjBuffFuncs.MassProductionBuffRemove,
+    Affects = {
+        MassProduction = {
+            Add = 0.125,
+            Mult = 1.0,
+        },
+    },
 }
