@@ -23,33 +23,37 @@ Rate of fire increased to once every two seconds.
 Overcharge will spend as much energy as possible, up to 50% of the total
 storage capacity available.
 
-Damage is scaled with the amount of energy spent with a formula roughly
-according to the following table:
+Damage and reload time is scaled with the amount of energy spent with a formula
+roughly according to the following table:
 
-Energy Spent | Damage Dealt
--------------|-------------
-2k           | 248
-4.5k         | 407
-7k           | 664
-9.5k         | 1077
-12k          | 1.7k
-14.5k        | 2.7k
-17k          | 4.1k
-19.5k        | 6.2k
-22k          | 8.8k
-24.5k        | 11.8k
-27k          | 15k
-29.5k        | 17.7k
-32k          | 20k
-34.5k        | 21.7k
-37k          | 22.9k
-39.5k        | 23.7k
-42k          | 24.2k
-44.5k        | 24.5k
-57k          | 25k
+Energy Storages | Energy Spent | Damage Dealt | Reload Time
+----------------|--------------|--------------|------------
+ 0              | 2k           | 248          | 2
+ 1              | 4.5k         | 407          | 2
+ 2              | 7k           | 664          | 2
+ 3              | 9.5k         | 1077         | 2
+ 4              | 12k          | 1.7k         | 2
+ 5              | 14.5k        | 2.7k         | 2
+ 6              | 17k          | 4.1k         | 2
+ 7              | 19.5k        | 6.2k         | 2
+ 8              | 22k          | 8.8k         | 2.214648089
+ 9              | 24.5k        | 11.8k        | 2.968880079
+ 10             | 27k          | 15k          | 3.741797874
+ 11             | 29.5k        | 17.7k        | 4.443434388
+ 12             | 32k          | 20k          | 5.013649299
+ 13             | 34.5k        | 21.7k        | 5.436822031
+ 14             | 37k          | 22.9k        | 5.730170643
+ 15             | 39.5k        | 23.7k        | 5.924040228
+ 16             | 42k          | 24.2k        | 6.048153344
+ 17             | 44.5k        | 24.5k        | 6.125998088
+ 22             | 57k          | 25k          | 6.239632493
+
 
 Adding energy above 32k results in diminishing returns for damage, which
 will never get higher than 25k.
+
+Overcharging will never reach an effective DPS higher than 4k, because of the
+delays.
 
 
 TODO:
