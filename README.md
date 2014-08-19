@@ -3,6 +3,16 @@ Patch-Z
 
 An ambitious patch for Supreme Commander: Forged Alliance.
 
+Contributors:
+
+ - Sheeo
+ - ZockyZock
+ - IceDreamer
+ - RK4000
+ - Guy
+ - Eximius
+ - AIx clan
+
 Overcharge
 ----------
 
