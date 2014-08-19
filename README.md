@@ -62,3 +62,20 @@ Economy
 
 
 ... Lots more changes incoming.
+
+
+
+
+Guy's wording
+_______
+
+
+A minimum of 2,000 stored energy is required to fire an overcharge.
+
+Firing an overcharge will consume all of your stored energy, up to a maximum of half your total energy storage capacity.
+For example, you might have 24,000 total energy storage capacity because you have built four energy storage structures (each providing 5,000 on top of the standard 4,000 from the ACU).
+If you currently have 15,000 energy in your energy bar, firing an overcharge will use 12,000 of that, leaving 3,000 in the bank.
+If you choose to fire again whilst you have just 3,000 left, all of this will be consumed because 3,000 is less than half of your 24,000 storage capacity.
+
+The more energy you spend on firing an overcharge, the more damage it deals.
+This means that you can choose to either fire overcharges more frequently whilst you have less energy stored and deal smaller amounts of damage each time, or wait and build up your energy to fire a high-damage shot.
