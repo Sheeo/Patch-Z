@@ -43,7 +43,7 @@ ScalableOvercharge = Class(DefaultProjectileWeapon) {
         if not self.unit:IsOverchargePaused() then
             self.unit:SetOverchargePaused(true)
             LOG("OC paused for " .. wait .. " seconds")
-            WaitSeconds(math.max(self.LatestOverchargeDmg/4000, 0.1))
+            WaitSeconds(wait)
             self.unit:SetOverchargePaused(false)
         end
     end,
