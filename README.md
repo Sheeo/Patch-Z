@@ -7,9 +7,12 @@ An ambitious patch for Supreme Commander: Forged Alliance.
 
 Major Changes:
 
- - Overcharge feature for ACU's changed as follows
+ - Overcharge feature for ACU's changed as follows:
+
    Minimum energy requirement for overcharge is 2.000 energy
+
    Overcharge will consume at most 50% of your total energy storage
+
    Damage is scaled with the amount of energy spent with a formula roughly
    according to the following table:
    
