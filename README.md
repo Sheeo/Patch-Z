@@ -11,7 +11,7 @@ Major Changes:
 
    Minimum energy requirement for overcharge is 2.000 energy
 
-   Overcharge will consume at most 50% of your total energy storage
+   Overcharge will spend as much energy as possible, up to 50% of the total storage.
 
    Damage is scaled with the amount of energy spent with a formula roughly
    according to the following table:
