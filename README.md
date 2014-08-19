@@ -18,6 +18,8 @@ Overcharge
 
 Minimum energy requirement for overcharge changed to 2.000 energy.
 
+Rate of fire increased to once every two seconds.
+
 Overcharge will spend as much energy as possible, up to 50% of the total
 storage capacity available.
 
