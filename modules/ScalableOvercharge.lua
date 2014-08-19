@@ -33,9 +33,19 @@ ScalableOvercharge = Class(DefaultProjectileWeapon) {
         local brain = GetArmyBrain(self.unit:GetArmy())
         local energyStored = brain:GetEconomyStored('ENERGY')
         local energyRatio = brain:GetEconomyStoredRatio('ENERGY')
-        LOG("Overcharge cost " .. OverchargeCost(energyStored, energyRatio))
-        CreateEconomyEvent(self.unit, OverchargeCost(energyStored, energyRatio), 0, 1)
+        local cost = OverchargeCost(energyStored, energyRatio)
+        LOG("Overcharge cost " .. cost)
+        CreateEconomyEvent(self.unit, cost, 0, 1)
         self.FirstShot = true
+    end,
+    PauseOvercharge = function(self)
+        local wait = math.max(self.LatestOverchargeDmg/4000, 0.1)
+        if not self.unit:IsOverchargePaused() then
+            self.unit:SetOverchargePaused(true)
+            LOG("OC paused for " .. wait .. " seconds")
+            WaitSeconds(math.max(self.LatestOverchargeDmg/4000, 0.1))
+            self.unit:SetOverchargePaused(false)
+        end
     end,
     CreateProjectileAtMuzzle = function(self, muzzle)
         local proj = DefaultProjectileWeapon.CreateProjectileAtMuzzle(self, muzzle)
@@ -48,6 +58,7 @@ ScalableOvercharge = Class(DefaultProjectileWeapon) {
         local energyStored = brain:GetEconomyStored('ENERGY')
         local energyRatio = brain:GetEconomyStoredRatio('ENERGY')
         local dmg = OverchargeDamage(OverchargeCost(energyStored, energyRatio))
+        self.LatestOverchargeDmg = dmg
         normalDamageTable.DamageAmount = dmg
         return normalDamageTable
     end
