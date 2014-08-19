@@ -1,0 +1,10 @@
+name = "Patch Z"
+version = 1.0
+copyright = "Sheeo"
+description = "Lots of changes"
+author = "Sheeo, Zock, everyone else"
+url = "http://example.com"
+uid = "3714ca70-2794-11e4-8c21-0800200c9a66"
+exclusive = false
+ui_only = false
+conflicts = {}
