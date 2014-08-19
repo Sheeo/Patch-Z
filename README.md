@@ -11,7 +11,7 @@ Major Changes:
 
    Minimum energy requirement for overcharge is 2.000 energy
 
-   Overcharge will spend as much energy as possible, up to 50% of the total storage.
+   Overcharge will spend as much energy as possible, up to 50% of the total storage capacity available.
 
    Damage is scaled with the amount of energy spent with a formula roughly
    according to the following table:
@@ -37,3 +37,15 @@ Major Changes:
     42k          | 24.2k
     44.5k        | 24.5k
     57k          | 25k
+
+    Adding energy above 32k results in diminishing returns for damage, which
+    will never get higher than 25k.
+
+
+    TODO:
+      - Cap dmg at 500 to commanders
+      - Decide building damage reduction/cap
+
+
+
+... Lots more changes incoming.
