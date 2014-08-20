@@ -86,101 +86,115 @@ Economy
 
 
 Changes to come
+===============
+
+Bugfixes
+--------
+
+Changes in *italic* are -maybe- changes.
+
+ - Atackmove for range units
+   Currently, attackmove for units doesn't work in that units go too close before they start attacking
+
+ - Atackmove from factory for engies
+   Engies on attackmove from factory will have too high reclaim range
+
+ - Check if it is possible to nerf manual reclaim/hack atackmove reclaim to be as efficient (no real bugfix)
+   Make manual reclaim as efficient as attackmove
+
+ - *Equalize tree groups & single trees reclaim time*
+
+ - ACU dies if it gets loaded into a transport while turning
+
+ - T3 massfab gives adjacency when turned off
+
+ - Allow showing hotstats while watching replays
+
+
+Smaller Changes
 ---------------
 
-Bugfixes:
-Atackmove for range units
-Atackmove from Factory for Engies
-Check if it is possible to nerf manual reclaim/hack atackmove reclaim to be as efficient (no real bugfix)
-MAYBE Equalize tree groups & single trees reclaim time
-Fix bug that ACU dies if it gets loaded into a transport while turning
-Fix bug of t3 massfab giving adjacency when turned off
-Allow showing hotstats while watching replays
+ - *Different shield overspill mechanism, if toggling shields to prevent it proves viable*
+
+ - ACU TML Projectile HP reduction, AoE splash for Sera one
+ - Factory rolloff time normalized for engineers
+ - *Increase T2 factory upgrade cost by 5-20%*
+ - Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)
+ - *Repairing units cheaper*
 
 
-Small:
-Shield regen & recharge rate instead of damage increase to prevent abuse through UI mod. 
-ACU TML – Projectile HP and/or Flying height, Splash for Sera one
-Air factory – Rolloff time for cyb/uef same as landfactory to make first air start on island maps more viable
-MAYBE increase t2 factory upgrade cost by 5-20%
-MAYBE increase overcharge dmg & reload time or make it use a % of your energy storage with more dmg as more energy was used
+UI Changes
+----------
 
-?	50% of storage, 25% of e spent as damage
-?	Maybe tuning against t3 units
+Hotbuild
+--------
 
-Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)
-MAYBE make repairing units cheaper
-Include new GC claws if feeling fancy
+ - Mixed key for mass & energy storage 
 
+ - Upgrade key takes engymod into account
 
+ - Make ">", "<" and "|" keys bindable
 
-UI Changes:
+ - Third bind on normal keys (qwerty) if no factory/builder is selected
 
-Hotbuild:
-Mixed key for mass & energy storage 
-Update the upgrade key for engymod
-Make unbindable key > < | bindable
-Allow third bind on normal keys (qwerty) if no factory/builder is selected
-Adjust the “build factory” hotkey for support factories (if there is no HQ, W will build HQ, otherwise most advanced support fac, add a new key for HQ only)
-Fix idle airscout key (implement done solution)
-Adjustable selection priority for selen, mobile shields & stealth, scouts, maybe AA. Either with new fire state, hold fire one, on assisting, or other.
-Fix zooming height when double pressing control groups
-Fix insta-zoom key not working while shift is pressed
-Minimap on top of other UI elements
-Complete new, cool, smaller UI
-Grid where it is possible to build/drop ( incircle of X distance around mouse pointer)
-MAYBE include massfab throttle
-Minimap improvement with camera angle, map preview instead of cartographic view option, options to not display units/buildings etc.
-Test split attack command, find out If it is bugged (I think sometimes it works not very well?) and fix it
-Fix the chain-upgrade problem of not updating UI symbols/apply it to the upgrade key too
-Allow cyb t3 engys to build ed5 shields (need to copy the hack from engymod to have increased buildtime & cost for those)
-Add ed5 shield button/key
-Improve hotstats (zooming/set shown times, maybe more stats, maybe remove some useless stats or improve UI)
-Improve transport loading process for big armies
-Add some order to load units in transports from factory, without unloading them after
-Maybe not include, but make anyway: sniping mod, that calculates how many of your selected units you need to kill the target in one pass (if all hit)
-Along with new UI, show more infos for observer (meaningful mass income from all players i.e.)
-Include first person view
-Improve and include netlag mod
-Include minimap fix
+ - Adjust the build factory hotkey for support factories (if there is no HQ, W will build HQ, otherwise most advanced support fac, add a new key for HQ only)
+
+ - Fix idle airscout key (implement done solution)
+ - Adjustable selection priority for selen, mobile shields & stealth, scouts, maybe AA. Either with new fire state, hold fire one, on assisting, or other.
+ - Fix zooming height when double pressing control groups
+ - Fix insta-zoom key not working while shift is pressed
+ - Minimap on top of other UI elements
+ - Complete new, cool, smaller UI
+ - Grid where it is possible to build/drop ( incircle of X distance around mouse pointer)
+ - *Automatic massfab throttling*
+ - Minimap improvement with camera angle, map preview instead of cartographic view option, options to not display units/buildings etc.
+ - Improved spread-attack, *introduce it for overcharge*
+ - Fix the chain-upgrade problem of not updating UI symbols/apply it to the upgrade key too
+ - Allow cyb t3 engys to build ed5 shields (need to copy the hack from engymod to have increased buildtime & cost for those)
+ - Add ed2 -> ed5 shield button/key
+ - Improve hotstats (zooming/set shown times, maybe more stats, maybe remove some useless stats or improve UI)
+ - Improve transport loading process for big armies
+ - Add some order to load units in transports from factory, without unloading them after
+ - Maybe not include, but make anyway: sniping mod, that calculates how many of your selected units you need to kill the target in one pass (if all hit)
+ - Along with new UI, show more infos for observer (meaningful mass income from all players i.e.)
+ - Include first person view
+ - Improve and include netlag adjustment
+ - Include minimap fix
 
 
-T3 Land & EXP:
-(see old thread in forum)
-Percy brick range 26 (starting value, can’t get less though to avoid getting kited by harb), speed 2.4 
-Adjust dps to keep current balance vs harb/othuum, can be slightly weaker (especially percy) when titan & loyalist become stronger instead
-
-Harbinger, Othuum: -25% dps (starting value)
-Titan, Loyalist: make them more useful and a normal part of army mix, loyalist only a bit worse than harb/othuum, titan a bit more (in exchange percy better than brick). Care to not make loyalist OP with their EMP in certain situations/numbers. 
-
-Fix T4 buildtimes (reduce by x3), check their mass efficiency vs new t3 units, adjust if needed, if they need a buff, buff “supportive” stats to reward using them together with units instead of alone
-
-T2 Land:
-MAYBE:
-Increase army diversity by making
-rocketbots > heavy tanks (rhino, obsi, chickenbots) > light tanks > rocketbots 
-maybe chickenbot > all for faction diversity (increase speed to be able to counter rocketbots) & blaze or mobile shield better for aeon to make up for having no rocketbots (also makes aeon hardest to play, which is ok)
-uef pillar > all light tanks, but weaker than all heavy tanks, need mongoose to combat heavy tanks
-
-Most is already the case, but the differences are not big enough (speed, combatstats) to make rocketbots & their counters worth it compared to allround units (heavy tanks & pillar) that are almost as good. 
-Main changes would be speed decrease for rhino, pillar & especially obsi, stats buff for obsi (carefull not to make it OP vs t1, maybe turrent turn rate nerf) & chickenbot, stats buff for rocketbots, adjust light tanks as needed (already did that in some last patch though and increased their speed, can’t do much here because they get OP vs navy)
-
-ECO:
-Remove mass storage adjacency
-Factories (maybe engies) add 100 mass storage
-Check if total mass output with full t3 eco is still enough to “play the game”, if not increase t3 mex output & cost
-Check if the risk for going from full t2 mex to first t3 mex is too big, if yes decrease t3 mex cost 
-Check if total mass output is still too much to make mapcontrol relevant, if yes decrease t3 mex output even further (12 maybe lowest possible value)
-Rework t2 & t3 massfab efficiency (& maybe adjacency)
-Nerf ACU RAS, check SCU RAS
-Check if costs for very expensive things (gameender, nukes, t3 arty, EXPs) are not too high with the lower eco
+T3 Land & EXP
+-------------
+ - Percival, Brick
+   Range 26 (starting value), speed 2.4
+   DPS adjustment
+ - Harbinger/Othuum
+   -25% dps (starting value)
+ - Titan, Loyalist
+   No change, but should be more useful with nerf of 'main' t3 land
+ - T4 buildtimes multiplied by 3 (starting value)
+   If exps need a buff, buff supportive stats so using them in combination with t3 land is stronger
 
 
-AIR: 
--Add/increase rolloff time for air / delay before production 
 
--Nerf speed for t3 planes as much as possible, ASF speed 18 as start, scout 22
--increase beam range on transports for easier loading 
+ECO
+---
+
+ - Factories add 100 mass storage, *1k energy storage*
+ - Check if total mass output with full t3 eco is still enough to play the game, if not increase t3 mex output & cost
+ - Check if the risk for going from full t2 mex to first t3 mex is too big, if yes decrease t3 mex cost 
+ - Check if total mass output is still too much to make mapcontrol relevant, if yes decrease t3 mex output even further (12 maybe lowest possible value)
+ - Rework t2 & t3 massfab efficiency (& maybe adjacency)
+ - Nerf ACU RAS, check SCU RAS
+ - Check if costs for very expensive things (gameender, nukes, t3 arty, EXPs) are not too high with the lower eco
+
+
+AIR
+---
+
+
+ - Add/increase rolloff time for air / delay before production 
+ - Nerf speed for t3 planes as much as possible, ASF speed 18 as start, scout 22
+ - increase beam range on transports for easier loading 
 
 Bomber:
 Vertical drop, and solve all dropping problems that might come with it, maybe check vanilla supcom for reference.
