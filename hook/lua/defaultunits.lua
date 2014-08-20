@@ -28,7 +28,7 @@ MassFabricationUnit = Class(StructureUnit) {
         self:SetProductionActive(true)
 		
 		--Activate Adjacency bonuses if they weren't already
-		if not AdjacencyBuffs[adjBuffs] then
+		if not AdjacencyBuffs[adjBuffs] and AdjacentUnitMemory then
 			local adjBuffs = self:GetBlueprint().Adjacency
 			if not adjBuffs then return end
 		
@@ -56,7 +56,7 @@ MassFabricationUnit = Class(StructureUnit) {
 		
 		--Remove any active adjacency bonuses provided by this unit
 		local asjBuffs = self:GetBlueprint().Adjacency
-		if adjBuffs and AdjacencyBuffs[adjBuffs] then		--Make sure there are some buffs present
+		if adjBuffs and AdjacencyBuffs[adjBuffs] and AdjacentUnitMemory then		--Make sure there are some buffs present
 			for k,v in AdjacencyBuffs[adjBuffs] do
 				for k,adjacentUnit in AdjacentUnitMemory do
 					if Buff.HasBuff(adjacentUnit, v) then
@@ -75,7 +75,3 @@ MassFabricationUnit = Class(StructureUnit) {
 		end
     end,
 }
-
-
-
-
