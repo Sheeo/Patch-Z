@@ -26,16 +26,21 @@ function OverchargeDamage(spent)
     return scale * 25000
 end
 
+local function GetEnergyFromBrain(brain)
+    local stored, ratio = brain:GetEconomyStored('ENERGY'), brain:GetEconomyStoredRatio('ENERGY')
+    return stored, ratio, stored / ratio
+end
 
 ScalableOvercharge = Class(DefaultProjectileWeapon) {
     StartEconomyDrain = function(self)
         if self.FirstShot then return end
-        local brain = GetArmyBrain(self.unit:GetArmy())
-        local energyStored = brain:GetEconomyStored('ENERGY')
-        local energyRatio = brain:GetEconomyStoredRatio('ENERGY')
+
+        local energyStored, energyRatio, energyStorage = GetEnergyFromBrain(GetArmyBrain(self.unit:GetArmy()))
+
         local cost = OverchargeCost(energyStored, energyRatio)
         LOG("Overcharge cost " .. cost)
         CreateEconomyEvent(self.unit, cost, 0, 1)
+
         self.FirstShot = true
     end,
     PauseOvercharge = function(self)
@@ -54,9 +59,9 @@ ScalableOvercharge = Class(DefaultProjectileWeapon) {
     end,
     GetDamageTable = function(self)
         local normalDamageTable = DefaultProjectileWeapon.GetDamageTable(self)
-        local brain = GetArmyBrain(self.unit:GetArmy())
-        local energyStored = brain:GetEconomyStored('ENERGY')
-        local energyRatio = brain:GetEconomyStoredRatio('ENERGY')
+
+        local energyStored, energyRatio, energyStorage = GetEnergyFromBrain(GetArmyBrain(self.unit:GetArmy()))
+
         local dmg = OverchargeDamage(OverchargeCost(energyStored, energyRatio))
         self.LatestOverchargeDmg = dmg
         normalDamageTable.DamageAmount = dmg
