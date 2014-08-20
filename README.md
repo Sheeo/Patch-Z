@@ -16,34 +16,35 @@ Contributors:
 Overcharge
 ----------
 
-Rate of fire increased to once every two seconds.
-
-
 A minimum of 2,000 stored energy is required to fire an overcharge.
 
-Firing an overcharge will consume all of your stored energy, up to a maximum of
-half your total energy storage capacity.  For example, you might have 24,000
-total energy storage capacity because you have built four energy storage
-structures (each providing 5,000 on top of the standard 4,000 from the ACU).
 
-If you currently have 15,000 energy in your energy bar, firing an overcharge
-will use 12,000 of that, leaving 3,000 in the bank.
+The minimum reload time between shots is 2 seconds.
 
-If you choose to fire again whilst you have just 3,000 left, all of this will
-be consumed because 3,000 is less than half of your 24,000 storage capacity.
 
-The more energy you spend on firing an overcharge, the more damage it deals.
-This means that you can choose to either fire overcharges more frequently
-whilst you have less energy stored and deal smaller amounts of damage each
-time, or wait and build up your energy to fire a high-damage shot.
+Firing an overcharge will consume all of your stored energy, up to a maximum of half your total energy storage capacity.
 
-Overcharge is possible without any energy storage structures, but at this level
-of energy the damage output is low.  The scale of increasing damage to energy
-expended is non-uniform and there is a maximum possible damage of 25,000.
-Damage output increases more than linearly when constructing each new energy
-storage structure, up to about 10 structures.  Beyond 10 the returns in terms
-of extra damage output begin to deminish, with no additional benefit beyond
-around 20.  See the following table for some sample figures:
+For example, you might have 24,000 total energy storage capacity because you have built four energy storage structures (each providing 5,000 on top of the standard 4,000 from the ACU).
+If you currently have 15,000 energy in your energy bar, firing an overcharge will use 12,000 of that, leaving 3,000 in the bank.
+
+If you choose to fire again whilst you have just 3,000 left, all of this will be consumed because 3,000 is less than half of your 24,000 storage capacity.
+
+
+The more energy you spend on firing an overcharge, the more damage it deals. However, there is a maximum possible damage per shot of 25,000.
+
+Because the amount of energy used will relate to the amount that you have stored, you could fire overcharges frequently, dealing smaller amounts of damage each time, or wait and build up your energy to fire a high-damage shot.
+
+
+Overcharge is now possible without any energy storage structures, but because little energy can be stored without these the damage output is very low.
+
+
+Adding energy storage increases the potential damage output more than linearly, up to about 10 structures.
+
+Beyond 10 the returns in terms of extra damage output begin to deminish, with no additional benefit beyond around 20 structures.
+
+
+
+The following table shows some example figures:
 
 
 Energy Storages | Energy Spent | Damage Dealt | Reload Time | DPS
