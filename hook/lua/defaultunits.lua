@@ -1,6 +1,5 @@
-local Unit = import('/lua/sim/Unit.lua').Unit
-
-StructureUnit = Class(Unit) {
+local oldStructureUnit = StructureUnit
+StructureUnit = Class(oldStructureUnit) {
 
     OnAdjacentTo = function(self, adjacentUnit, triggerUnit)
         if self:IsBeingBuilt() then return end
@@ -20,7 +19,8 @@ StructureUnit = Class(Unit) {
     end,	
 }
 
-MassFabricationUnit = Class(StructureUnit) {
+local oldMassFabricationUnit = MassFabricationUnit
+MassFabricationUnit = Class(oldMassFabricationUnit) {
 
 	OnConsumptionActive = function(self)
         StructureUnit.OnConsumptionActive(self)
