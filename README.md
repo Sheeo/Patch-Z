@@ -89,10 +89,10 @@ Economy
 Changes to come
 ===============
 
+Changes in *italic* are -maybe- changes.
+
 Bugfixes
 --------
-
-Changes in *italic* are -maybe- changes.
 
  - Atackmove for range units
    Currently, attackmove for units doesn't work in that units go too close before they start attacking
@@ -192,24 +192,40 @@ ECO
 AIR
 ---
 
-
  - Add/increase rolloff time for air / delay before production 
  - Nerf speed for t3 planes as much as possible, ASF speed 18 as start, scout 22
- - increase beam range on transports for easier loading 
-
-Bomber:
-Vertical drop, and solve all dropping problems that might come with it, maybe check vanilla supcom for reference.
-Reduce cost and dmg (cost more than dmg), possibly reduce cost by 50% as start and 2/3 dmg. Consider changing the energy/mass/bt ratio if it seems useful.
-Make them killable by (enough emouts of) flak BEFORE they drop a bomb due to hitbox/speed/flying height changes. Include shields in the calculation about how many bombers you’d need, and how much flak is appropriate for that. Juggle with the values so they don’t become too bad/too good vs mobile flak either (current power is about ok, hard to say how it will turn out with the eco changes though, will need a lot testing) If needed can adjust mobile flak slightly too (projectile speed, splash, speed..), but not too much to keep them as good vs gunships as now.
-Check T4 bomber too
-Change stationary flak values as much as needed, if changing bomber values is not enough 
-Decrease stat. Flak range as much as possible, and make them as expensive as possible, while still being able to count the bombers before they drop. Scenario is to have flak around a nuke i.e. , not much forwarded flak that you’d need in all 4 direction (as that would need the flak to be 4 times cheaper, and thus getting OP in any other case) Consider at range nerf that they must still counter gunships aswell. Maybe range back to 44 for all of them as start. 
-Similar for SAM, nerf range (44 as start), increase cost. Remove redundant AOE. Make them as expensive as possible, use t1/t2 AA turrents in relation to early game income as reference. 
+ - Increase beam range on transports for easier loading 
 
 
+*Bomber*
+---------
 
-MAYBE: 
-Give ASF/Int two roles, one countering the other, the other countering all other planes. Really complicated, but would be great if possible. 
+
+Vertical drop, and solve all dropping problems that might come with it, maybe
+check vanilla supcom for reference.  Reduce cost and dmg (cost more than dmg),
+possibly reduce cost by 50% as start and 2/3 dmg. Consider changing the
+energy/mass/bt ratio if it seems useful.  Make them killable by (enough emouts
+of) flak BEFORE they drop a bomb due to hitbox/speed/flying height changes.
+Include shields in the calculation about how many bombers you’d need, and how
+much flak is appropriate for that. Juggle with the values so they don’t become
+too bad/too good vs mobile flak either (current power is about ok, hard to say
+how it will turn out with the eco changes though, will need a lot testing) If
+needed can adjust mobile flak slightly too (projectile speed, splash, speed..),
+but not too much to keep them as good vs gunships as now.  Check T4 bomber too
+Change stationary flak values as much as needed, if changing bomber values is
+not enough Decrease stat. Flak range as much as possible, and make them as
+expensive as possible, while still being able to count the bombers before they
+drop. Scenario is to have flak around a nuke i.e. , not much forwarded flak
+that you’d need in all 4 direction (as that would need the flak to be 4 times
+cheaper, and thus getting OP in any other case) Consider at range nerf that
+they must still counter gunships aswell. Maybe range back to 44 for all of them
+as start.  Similar for SAM, nerf range (44 as start), increase cost. Remove
+redundant AOE. Make them as expensive as possible, use t1/t2 AA turrents in
+relation to early game income as reference. 
+
+
+
+*Give ASF/Int two roles, one countering the other, the other countering all other planes. Really complicated, but would be great if possible. 
 Role 1: Interceptor, speed high enough to catch all other planes (bomber gunships transports, scouts), losing bad to ASF
 Role 2: ASF, slightly slower than the other planes, so not useful to intercept them reliably, but beating ASF mass for mass 
 Question is: Will T1 or T3 plane be the ASF
@@ -219,4 +235,4 @@ Both are not terrible, and should work, but its not optimal. T1 is kinda the cur
 In any case, speed of ASF would need to be slightly lower than as much as possible other planes, while Intie needs to be as slow as possible, while still being able to catch all others, to ensure the gap between ASF and intie is as low as possible. 
 adjust swift winds and speed of all other planes accordingly  to that
 can give Restorer role as very slow, but more powerfull ASF or “mobile SAM” or fancy name “AA-Gunship”
-Restorer 18 air-to-ground dps
+Restorer 18 air-to-ground dps*
