@@ -56,7 +56,6 @@ StructureUnit = Class(Unit) {
     FxDamage3 = { EffectTemplate.DamageStructureFire01, EffectTemplate.DamageStructureSparks01 },    
 
     OnCreate = function(self)
-        LOG('CODE IS WORKING')	
         Unit.OnCreate(self)
         self.WeaponMod = {}
         self.FxBlinkingLightsBag = {} 
@@ -394,11 +393,12 @@ StructureUnit = Class(Unit) {
         if adjacentUnit:IsBeingBuilt() then return end
         
 		--Remember all the adjacent units
-		self.AdjacentUnitMemory = AdjacentUnitMemoryTable[adjacentUnit]		
+		self.AdjacentUnitMemory = {}
+		table.insert(self.AdjacentUnitMemory, adjacentUnit)
 		
         local adjBuffs = self:GetBlueprint().Adjacency
         if not adjBuffs then return end
-        
+    
         for k,v in AdjacencyBuffs[adjBuffs] do
             Buff.ApplyBuff(adjacentUnit, v, self)
         end
@@ -978,10 +978,9 @@ MassFabricationUnit = Class(StructureUnit) {
         self:SetMaintenanceConsumptionActive()
         self:SetProductionActive(true)
 		
-		--Activate Adjacency bonuses if they weren't already		
-		if not AdjacencyBuffs[adjBuffs] and AdjacentUnitMemory then
-			local adjBuffs = self:GetBlueprint().Adjacency
-			if not adjBuffs then return end
+		--Activate Adjacency bonuses if they weren't already	
+		local adjBuffs = self:GetBlueprint().Adjacency		
+		if adjBuffs then
 		
 			--Apply all buffs to all adjacent units. Like this?
 			for k,v in AdjacencyBuffs[adjBuffs] do
@@ -992,10 +991,9 @@ MassFabricationUnit = Class(StructureUnit) {
 			
 			--Turn on the visual adjacency FX
 			for k,adjacentUnit in AdjacentUnitMemory do
-				CreateAdjacentEffect(self, v)		--Function found in StructureUnit class
+				CreateAdjacentEffect(self, adjacentUnit)	--Function found in StructureUnit class
 				adjacentUnit:RequestRefreshUI()				
 			end
-			
 			self:RequestRefreshUI()
 		end		
     end,
@@ -1007,7 +1005,7 @@ MassFabricationUnit = Class(StructureUnit) {
 		
 		--Remove any active adjacency bonuses provided by this unit
 		local asjBuffs = self:GetBlueprint().Adjacency
-		if adjBuffs and AdjacencyBuffs[adjBuffs] and AdjacentUnitMemory then		--Make sure there are some buffs present
+		if adjBuffs and AdjacencyBuffs[adjBuffs] and AdjacentUnitMemory then	--Make sure there are some buffs present
 			for k,v in AdjacencyBuffs[adjBuffs] do
 				for k,adjacentUnit in AdjacentUnitMemory do
 					if Buff.HasBuff(adjacentUnit, v) then
@@ -1018,10 +1016,9 @@ MassFabricationUnit = Class(StructureUnit) {
 
 			--Turn off the visual adjacency FX
 			for k,adjacentUnit in AdjacentUnitMemory do
-				DestroyAdjacentEffects(self, v)
+				DestroyAdjacentEffects(self, adjacentUnit)
 				adjacentUnit:RequestRefreshUI()
 			end
-			
 			self:RequestRefreshUI()
 		end		
     end,
