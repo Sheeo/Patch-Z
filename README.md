@@ -111,6 +111,10 @@ Bugfixes
 
  - Allow showing hotstats while watching replays
 
+ - Radar UI doesn't update post upgrade
+
+ - Extractor UI doesn't always update post upgrade
+
 
 Smaller Changes
 ---------------
