@@ -7,9 +7,9 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
         local bp = self:GetBlueprint()
         local bpAnim = bp.Display.AnimationFinishBuildLand
         if bpAnim and EntityCategoryContains(categories.LAND, unitBeingBuilt) then
-            self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(5) --Increase the Rate
+            self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(3) --Increase the Rate
             self.Trash:Add(self.RollOffAnim)
---            WaitTicks(1)				--Try removing this to get that last bit of speed
+            WaitTicks(1)
             WaitFor(self.RollOffAnim)
         end
         if unitBeingBuilt and not unitBeingBuilt:IsDead() then
@@ -27,7 +27,7 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
 
     PlayFxRollOffEnd = function(self)
         if self.RollOffAnim then        
-            self.RollOffAnim:SetRate(-5)	--Increase the Rate
+            self.RollOffAnim:SetRate(-3)	--Increase the Rate
             WaitFor(self.RollOffAnim)
             self.RollOffAnim:Destroy()
             self.RollOffAnim = nil
@@ -39,9 +39,10 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
         self:SetBlockCommandQueue(true)
         self:PlayFxRollOff()
         # Wait until unit has left the factory
-        while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
-            WaitSeconds(0.1)				--Decrease the check interval (0.5)
-        end
+		WaitSeconds(1.2)
+--		while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
+--			WaitSeconds(0.1)				--Decrease the check interval (0.5)
+--		end
         self.MoveCommand = nil
         self:PlayFxRollOffEnd()
         self:SetBusy(false)
