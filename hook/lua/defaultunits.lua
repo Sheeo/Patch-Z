@@ -1,6 +1,4 @@
-
-local oldMassFabricationUnit = MassFabricationUnit
-MassFabricationUnit = Class(oldMassFabricationUnit) {
+local AdjacencyTogglingUnit = Class(StructureUnit) {
     OnAdjacentTo = function(self, adjacentUnit, triggerUnit)
         if self:IsBeingBuilt() then return end
         if adjacentUnit:IsBeingBuilt() then return end
@@ -28,23 +26,6 @@ MassFabricationUnit = Class(oldMassFabricationUnit) {
         self:RequestRefreshUI()
     end,
 
-    OnConsumptionActive = function(self)
-        StructureUnit.OnConsumptionActive(self)
-        self:SetMaintenanceConsumptionActive()
-        self:SetProductionActive(true)
-        self:ApplyAdjacencyBuffs()
-        self._productionActive = true
-    end,
-
-    OnConsumptionInActive = function(self)
-        StructureUnit.OnConsumptionInActive(self)
-        self:SetMaintenanceConsumptionInactive()
-        self:SetProductionActive(false)
-        self:RemoveAdjacencyBuffs()
-        self._productionActive = false
-    end,
-
-
     ApplyAdjacencyBuffs = function(self)
         local adjBuffs = self:GetBlueprint().Adjacency
         if not adjBuffs or not self.AdjacentUnits then return end
@@ -68,5 +49,35 @@ MassFabricationUnit = Class(oldMassFabricationUnit) {
                 end
             end
         end
+    end
+}
+
+
+local oldMassFabricationUnit = MassFabricationUnit
+MassFabricationUnit = Class(AdjacencyTogglingUnit, oldMassFabricationUnit) {
+    OnConsumptionActive = function(self)
+        oldMassFabricationUnit.OnConsumptionActive(self)
+        self:ApplyAdjacencyBuffs()
+        self._productionActive = true
+    end,
+    OnConsumptionInActive = function(self)
+        oldMassFabricationUnit.OnConsumptionInActive(self)
+        self:RemoveAdjacencyBuffs()
+        self._productionActive = false
+    end
+}
+
+local oldMassCollectionUnit = MassCollectionUnit
+MassCollectionUnit = Class(AdjacencyTogglingUnit, oldMassCollectionUnit) {
+    OnConsumptionActive = function(self)
+        oldMassCollectionUnit.OnConsumptionActive(self)
+        self:ApplyAdjacencyBuffs()
+        self._productionActive = true
+    end,
+
+    OnConsumptionInActive = function(self)
+        oldMassCollectionUnit.OnConsumptionInActive(self)
+        self:RemoveAdjacencyBuffs()
+        self._productionActive = false
     end
 }
