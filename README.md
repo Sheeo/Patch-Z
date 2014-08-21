@@ -108,6 +108,7 @@ Bugfixes
  - ACU dies if it gets loaded into a transport while turning
 
  - T3 massfab gives adjacency when turned off
+	-Fixed for T2 and T3 Mass Fabricators, as well as T1, T2, and T3 Mass Extractors, which now all lose bonuses when turned off.
 
  - Allow showing hotstats while watching replays
 
@@ -122,6 +123,24 @@ Smaller Changes
  - *Different shield overspill mechanism, if toggling shields to prevent it proves viable*
 
  - ACU TML Projectile HP reduction, AoE splash for Sera one
+	-Complete. The Seraphim TML is now identical to the UEF's one with the exception of a 0.2s delay before
+		firing, necessary for animation. AOE = 2 (From 3), MuzzleVelocity = 5 (From 10) (Affects the arc and
+		effective minimum range).
+	
+	-Billy had a 30 second reload time which severely limited the effectiveness of the weapon, especially
+		considering the extremely high cost. Reload reduced from 30 seconds to 10 seconds, providing you 
+		have the absurd economy necessary to fire that fast.
+	
+	-Additional changes while looking at this were made to all the game's nukes. Inner ring radius and damage
+		seems good across the board, but outer ring damage is all over the place. It's been re-done along the
+		following thoery:
+			-Billy: Kills all T1, puts a serious dent in T2. Outer ring set to 1000 Damage (From 250). 
+				Inner ring damage reduced to 10000 (From 12000) to compensate.
+			-Submarines: Kills all T2, puts a serious dent in light T3 units. Outer ring left at 3000.
+			-Static Nukes: Kills all T2, light T3, and puts a serious dent in heavy T3 units. Outer ring set
+				to 5000 (From 500).
+			-Seraphim T4 Nuke: Kills all T3. Outer ring damage set to 10000 (From 7500).
+			
  - Factory rolloff time normalized for engineers
  - *Increase T2 factory upgrade cost by 5-20%*
  - Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)

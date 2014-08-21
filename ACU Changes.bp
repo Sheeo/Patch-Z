@@ -22,6 +22,13 @@ UnitBlueprint {
 			EnergyRequired = 2000,
 			RateOfFire = 0.5,
 		},
+		{
+		},
+		{
+			NukeInnerRingDamage = 10000,			#Billy Nuke
+			NukeOuterRingDamage = 1000,
+            RackSalvoReloadTime = 10,				#From 30
+		},
 	},
 }
 UnitBlueprint {
@@ -47,6 +54,12 @@ UnitBlueprint {
 			EnergyDrainPerSecond = 2000,
 			EnergyRequired = 2000,
 			RateOfFire = 0.5,
+		},
+		{
+		},
+		{
+			DamageRadius = 2,						#TML Weapon now identical to UEF's
+			MuzzleVelocity = 10,
 		},
 	},
 }
