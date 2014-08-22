@@ -81,3 +81,38 @@ MassCollectionUnit = Class(AdjacencyTogglingUnit, oldMassCollectionUnit) {
         self._productionActive = false
     end
 }
+
+local oldAirFactoryUnit = AirFactoryUnit
+AirFactoryUnit = Class(oldAirFactoryUnit) {
+
+    OnStartBuild = function(self, unitBeingBuilt, order )
+        self:ChangeBlinkingLights('Yellow')
+		if EntityCategoryContains(categories.ENGINEER, unitBeingBuilt) then		--Force T3 Air Factories
+			self:SetBuildRate(90)												--To have equal Engineer buildspeed
+		end
+        StructureUnit.OnStartBuild(self, unitBeingBuilt, order )
+        self.BuildingUnit = true
+        if order != 'Upgrade' then
+            ChangeState(self, self.BuildingState)
+            self.BuildingUnit = false
+        end
+        self.FactoryBuildFailed = false
+    end,
+
+    OnStopBuild = function(self, unitBeingBuilt, order )
+        StructureUnit.OnStopBuild(self, unitBeingBuilt, order )
+        
+		if EntityCategoryContains(categories.ENGINEER, unitBeingBuilt) then		--Reset BuildPower
+			self:SetBuildRate(self:GetBlueprint().Economy.BuildRate)
+		end
+		
+        if not self.FactoryBuildFailed then
+            if not EntityCategoryContains(categories.AIR, unitBeingBuilt) then
+                self:RollOffUnit()
+            end
+            self:StopBuildFx()
+            self:ForkThread(self.FinishBuildThread, unitBeingBuilt, order )
+        end
+        self.BuildingUnit = false
+    end,	
+}

@@ -7,7 +7,11 @@ TAirFactoryUnit = Class(oldTAirFactoryUnit) {
         local bp = self:GetBlueprint()
         local bpAnim = bp.Display.AnimationFinishBuildLand
         if bpAnim and EntityCategoryContains(categories.LAND, unitBeingBuilt) then
-            self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(3) --Increase the Rate
+			if EntityCategoryContains(categories.TECH3, self) then
+				self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(5) --Increase the Rate further for T3			
+			else
+				self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(3) --Increase the Rate
+			end
             self.Trash:Add(self.RollOffAnim)
             WaitTicks(1)
             WaitFor(self.RollOffAnim)
@@ -27,7 +31,11 @@ TAirFactoryUnit = Class(oldTAirFactoryUnit) {
 
     PlayFxRollOffEnd = function(self)
         if self.RollOffAnim then        
-            self.RollOffAnim:SetRate(-3)	--Increase the Rate
+			if EntityCategoryContains(categories.TECH3, self) then
+				self.RollOffAnim:SetRate(-5) --Increase the Rate further for T3			
+			else
+				self.RollOffAnim:SetRate(-3) --Increase the Rate
+			end		
             WaitFor(self.RollOffAnim)
             self.RollOffAnim:Destroy()
             self.RollOffAnim = nil
@@ -39,9 +47,13 @@ TAirFactoryUnit = Class(oldTAirFactoryUnit) {
         self:SetBlockCommandQueue(true)
         self:PlayFxRollOff()
         # Wait until unit has left the factory
-        while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
-            WaitSeconds(0.1)				--Decrease the check interval (0.5)
-        end
+		if not EntityCategoryContains(categories.TECH3, self) then
+			while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
+				WaitSeconds(0.1)				--Decrease the check interval (0.5)
+			end
+		else 
+			WaitSeconds(1.6)					--Force the platform up early. Introduce temporary speed boost for Engie.
+		end
         self.MoveCommand = nil
         self:PlayFxRollOffEnd()
         self:SetBusy(false)

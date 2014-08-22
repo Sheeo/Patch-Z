@@ -7,7 +7,11 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
         local bp = self:GetBlueprint()
         local bpAnim = bp.Display.AnimationFinishBuildLand
         if bpAnim and EntityCategoryContains(categories.LAND, unitBeingBuilt) then
-            self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(3) --Increase the Rate
+			if EntityCategoryContains(categories.TECH2, self) or EntityCategoryContains(categories.TECH3, self) then
+				self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(6) --Increase the Rate further for T2 and T3
+			else
+				self.RollOffAnim = CreateAnimator(self):PlayAnim(bpAnim):SetRate(3) --Increase the Rate			
+			end
             self.Trash:Add(self.RollOffAnim)
             WaitTicks(1)
             WaitFor(self.RollOffAnim)
@@ -27,7 +31,11 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
 
     PlayFxRollOffEnd = function(self)
         if self.RollOffAnim then        
-            self.RollOffAnim:SetRate(-3)	--Increase the Rate
+			if EntityCategoryContains(categories.TECH2, self) or EntityCategoryContains(categories.TECH3, self) then
+				self.RollOffAnim:SetRate(-6) 	--Increase the Rate further for T2			
+			else
+	            self.RollOffAnim:SetRate(-3)	--Increase the Rate		
+			end			
             WaitFor(self.RollOffAnim)
             self.RollOffAnim:Destroy()
             self.RollOffAnim = nil

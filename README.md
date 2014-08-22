@@ -115,6 +115,8 @@ Bugfixes
  - Radar UI doesn't update post upgrade
 
  - Extractor UI doesn't always update post upgrade
+ 
+ - Remove Brute's FactoryFixes.lua entirely and fix everything properly.
 
 
 Smaller Changes
@@ -143,11 +145,8 @@ Smaller Changes
 			
  - Factory rolloff time normalized for engineers
 	-All Land Factories are already completely identical
-	-T1 Cybran/UEF and Aeon/Seraphim Air are pairs, with the aliens being faster
-	-Sera/Aeon Airfacs = All Landfacs
-	
-	-UEF Air Factories have been fixed to the same speed as all Land. However, the Cybran Air Factory refuses to get much faster
-		despite a hugely increased animation rate and a tick-by-tick rolloff check.
+	-All Air Factories are now fixed to be the same as Land. There is visual clipping for the UEF T3, so a buff for a temporary speed boost to get
+		them out faster should be good. Animation is not affected by this (I bypassed it for the T3 only).
 	
  - *Increase T2 factory upgrade cost by 5-20%*
  - Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)
