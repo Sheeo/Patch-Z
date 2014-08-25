@@ -13,6 +13,13 @@ Contributors:
  - Eximius
  - AIx clan
 
+
+Major Changes
+=============
+
+These are the major changes most relevant to normal gameplay.
+
+
 Overcharge
 ----------
 
@@ -86,6 +93,23 @@ Economy
  - Mass Storage no longer provides mass production bonus to Mass Extractors.
 
 
+
+Smaller Changes
+===============
+
+ - ACU TML
+   Seraphim ACU tml made identical to UEF.
+
+ - *Billy Nuke reload time 10*
+ - *Nukes normalised*
+
+
+Bugfixes
+========
+
+ - Adjacency for Mass Extractors and Mass Fabricators now only works when they are turned on.
+
+
 Changes to come
 ===============
 
@@ -107,8 +131,6 @@ Bugfixes
 
  - ACU dies if it gets loaded into a transport while turning
 
- - T3 massfab gives adjacency when turned off
-	-Fixed for T2 and T3 Mass Fabricators, as well as T1, T2, and T3 Mass Extractors, which now all lose bonuses when turned off.
 
  - Allow showing hotstats while watching replays
 
