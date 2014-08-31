@@ -46,14 +46,16 @@ TAirFactoryUnit = Class(oldTAirFactoryUnit) {
         self:SetBusy(true)
         self:SetBlockCommandQueue(true)
         self:PlayFxRollOff()
-        # Wait until unit has left the factory
+		
+        --Wait until unit has left the factory
 		if not EntityCategoryContains(categories.TECH3, self) then
 			while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
 				WaitSeconds(0.1)				--Decrease the check interval (0.5)
 			end
 		else 
-			WaitSeconds(1.6)					--Force the platform up early. Introduce temporary speed boost for Engie.
+			WaitSeconds(1.6)					--Force the platform up early for the T3 Factory (Creates visual clipping)
 		end
+		
         self.MoveCommand = nil
         self:PlayFxRollOffEnd()
         self:SetBusy(false)

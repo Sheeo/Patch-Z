@@ -46,11 +46,10 @@ CAirFactoryUnit = Class(oldCAirFactoryUnit) {
         self:SetBusy(true)
         self:SetBlockCommandQueue(true)
         self:PlayFxRollOff()
-        # Wait until unit has left the factory
+		
+        --Force the Factory to not wait until unit has left
 		WaitSeconds(1.2)
---		while not self.UnitBeingBuilt:IsDead() and self.MoveCommand and not IsCommandDone(self.MoveCommand) do
---			WaitSeconds(0.1)				--Decrease the check interval (0.5)
---		end
+		
         self.MoveCommand = nil
         self:PlayFxRollOffEnd()
         self:SetBusy(false)
