@@ -167,8 +167,12 @@ Smaller Changes
 			
  - Factory rolloff time normalized for engineers
 	-All Land Factories are already completely identical
-	-All Air Factories are now fixed to be the same as Land. There is visual clipping for the UEF T3, so a buff for a temporary speed boost to get
-		them out faster should be good. Animation is not affected by this (I bypassed it for the T3 only).
+	-All Air Factories are now the same as each other, and as Land
+	-Request a speed buff be created to accelerate Engineers from the T3 UEF Factory to solve visual clipping, not essential
+	-Naval Factories completed and now produce at the same speed as the appropriate tech level Land or Air Factory
+	-Full T1 Cybran Air Factory folder included as hard overwrite to counteract the current FAF code, which can't be hooked out properly.
+	-Extremely odd bug with the T3 Naval Factories, they sometimes error out in the OnPause function, something to do with the
+		StopArmsMoving function, method SetGoal is a nil value apparently. No idea why this is happening, probably a hooking fail.
 	
  - *Increase T2 factory upgrade cost by 5-20%*
  - Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)
