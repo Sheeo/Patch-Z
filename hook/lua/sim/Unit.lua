@@ -6,12 +6,10 @@ Unit = Class(oldUnit) {
             self:DoOnDamagedCallbacks(instigator)
 
 			--Re-jig for the new shielding setup
-            if self:GetShieldType() != 'Personal' then
+            if self:GetShieldType() != 'Personal' or not self:ShieldIsUp() then
                 self:DoTakeDamage(instigator, amount, vector, damageType)
-			elseif self:GetShieldType() = 'Personal' and self:ShieldIsUp() then
+			elseif self:GetShieldType() == 'Personal' and self:ShieldIsUp() then
 				self.MyShield:OnDamage(instigator, amount, vector, damageType)	--Pass damage on to shield
-			else
-				self:DoTakeDamage(instigator, amount, vector, damageType)
             end
         end
     end,
