@@ -16,10 +16,10 @@ UAL0303 = Class(AWalkingLandUnit) {
     Weapons = {
         FrontTurret01 = Class(ADFLaserHighIntensityWeapon) {}
     },
-	
+
     CreateShield = function(self, shieldSpec)
-        # the bubble shield on this unit is considered personal: the harbinger should not be damaged as long as its shield is up
         AWalkingLandUnit.CreateShield(self, shieldSpec)
+        --Set the shield's type to Personal to prevent damage to the base unit from things which somehow get under the shield	
         if self.MyShield then
             self.MyShield:SetType('Personal')
         end
@@ -29,12 +29,18 @@ UAL0303 = Class(AWalkingLandUnit) {
         EffectUtil.CreateAeonCommanderBuildingEffects( self, unitBeingBuilt, self:GetBlueprint().General.BuildBones.BuildEffectBones, self.BuildEffectsBag )
     end,
 	
---	Begin Shielding fix - Sphere of Shield size when on, box when off, to allow personal shield code to work
+--	Begin Shielding fix: Since Personal Shields no longer use their own collision, instead handling
+--  all damage in unit.lua, and the harbinger is unique in having a personal bubble shield, we need
+--  the hitbox to be the shape and size of the bubble when the shield is up, and the box of the unit
+--  when the shield is down. Anti-collision for this unit is also handled here as it's not officially a personal shield.
 
 	OnShieldEnabled = function(self)
 		local bp = self:GetBlueprint()	
 		AWalkingLandUnit.OnShieldEnabled(self)
 		self:SetCollisionShape('Sphere', 0, bp.SizeY * 0.5, 0, (bp.Defense.Shield.ShieldSize * 0.5))
+		
+		--Manually disable the bubble shield's collision sphere after its creation so it acts like the new personal shields
+		self.MyShield:SetCollisionShape('None')			
 	end,
 	
 	OnShieldDisabled = function(self)

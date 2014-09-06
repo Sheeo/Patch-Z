@@ -1,6 +1,7 @@
 local oldUnit = Unit
 Unit = Class(oldUnit) {
     
+	--Get rid of a broken check mechanism
     ShieldIsOn = function(self)
         if self.MyShield then
             return self.MyShield:IsOn()
@@ -11,15 +12,12 @@ Unit = Class(oldUnit) {
         if self.CanTakeDamage then
             self:DoOnDamagedCallbacks(instigator)
 
+			--Pass damage to an active personal shield, as personal shields no longer have collisions
             if self:GetShieldType() == 'Personal' and self:ShieldIsOn() then
-                local overkill = self.MyShield:GetOverkill(instigator, amount, damageType)
                 self.MyShield:ApplyDamage(instigator, amount, vector, damageType)
-                if overkill > 0 then
-                    self:DoTakeDamage(instigator, overkill, vector, damageType)
-                end
             else
                 self:DoTakeDamage(instigator, amount, vector, damageType)
             end
         end
-    end,
+    end,	
 }

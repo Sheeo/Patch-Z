@@ -139,6 +139,8 @@ Bugfixes
  - Extractor UI doesn't always update post upgrade
  
  - Remove Brute's FactoryFixes.lua entirely and fix everything properly.
+ 
+ - Fixed shields entirely, they should now work in every circumstance across the board. Personal shields now handle damage via unit.lua
 
 
 Smaller Changes
