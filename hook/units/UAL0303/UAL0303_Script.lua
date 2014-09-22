@@ -36,28 +36,23 @@ UAL0303 = Class(AWalkingLandUnit) {
 
 	OnShieldEnabled = function(self)
 		local bp = self:GetBlueprint()	
-		AWalkingLandUnit.OnShieldEnabled(self)
 		self:SetCollisionShape('Sphere', 0, bp.SizeY * 0.5, 0, (bp.Defense.Shield.ShieldSize * 0.5))
-		
 		--Manually disable the bubble shield's collision sphere after its creation so it acts like the new personal shields
 		self.MyShield:SetCollisionShape('None')			
 	end,
 	
 	OnShieldDisabled = function(self)
 		local bp = self:GetBlueprint()			
-		AWalkingLandUnit.OnShieldDisabled(self)
 		self:SetCollisionShape('Box', 0, bp.SizeY * 0.5, 0, bp.SizeX * 0.5, bp.SizeY * 0.5, bp.SizeZ * 0.5)
 	end,
 
 	OnShieldHpDepleted = function(self)
 		local bp = self:GetBlueprint()
-		AWalkingLandUnit.OnShieldHpDepleted(self)
 		self:SetCollisionShape('Box', 0, bp.SizeY * 0.5, 0, bp.SizeX * 0.5, bp.SizeY * 0.5, bp.SizeZ * 0.5)
 	end,
 
 	OnShieldEnergyDepleted = function(self)
 		local bp = self:GetBlueprint()	
-		AWalkingLandUnit.OnShieldEnergyDepleted(self)
 		self:SetCollisionShape('Box', 0, bp.SizeY * 0.5, 0, bp.SizeX * 0.5, bp.SizeY * 0.5, bp.SizeZ * 0.5)
 	end,	
 
