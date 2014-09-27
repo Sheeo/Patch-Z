@@ -86,7 +86,7 @@ Shield = Class(oldShield) {
             self:RemoveShield()
             self.Owner:OnShieldDisabled() --Now an empty function needed only for Harbinger
 			self.Owner:PlayUnitSound('ShieldOff')
-			self.Owner:SetMainenanceConsumptionInactive()
+			self.Owner:SetMaintenanceConsumptionInactive()
 
 			--Apply vulnerabilities
 			self:RevokeTransportProtection()

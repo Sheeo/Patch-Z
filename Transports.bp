@@ -1,0 +1,73 @@
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "xea0306",						#Continental
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "uaa0107",						#Aeon T1 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "uea0107",						#UEF T1 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "ura0107",						#Cybran T1 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "xsa0107",						#Seraphim T1 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "uaa0104",						#Aeon T2 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "uea0104",						#UEF T2 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "ura0104",						#Cybran T2 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "xsa0104",						#Seraphim T2 Transport
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}
+
+UnitBlueprint {
+	Merge = true,
+	BlueprintId = "uea0203",						#UEF T2 Gunship
+	Air = {
+		TransportHoverHeight = 7,					#3
+	},
+}

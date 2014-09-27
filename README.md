@@ -13,46 +13,32 @@ Contributors:
  - Eximius
  - AIx clan
 
-
 Major Changes
 =============
 
 These are the major changes most relevant to normal gameplay.
 
+New Overcharge
+--------------
 
-Overcharge
-----------
+ - A minimum of 2,000 stored energy is required to fire an overcharge.
+ 
+ - The minimum reload time between shots is 2 seconds.
+ 
+ - Firing an overcharge will consume all of your stored energy, up to a maximum of half your total energy storage capacity.
+   For example, you might have 24,000 total energy storage capacity because you have built four energy storage structures (each providing 5,000 on top of the standard 4,000 from the ACU).
+   If you currently have 15,000 energy in your energy bar, firing an overcharge will use 12,000 of that, leaving 3,000 in the bank.
+   If you choose to fire again whilst you have just 3,000 left, all of this will be consumed because 3,000 is less than half of your 24,000 storage capacity.
+   The more energy you spend on firing an overcharge, the more damage it deals. However, there is a maximum possible damage per shot of 25,000.
+   
+ - Because the amount of energy used will relate to the amount that you have stored, you could fire overcharges frequently, 
+   dealing smaller amounts of damage each time, or wait and build up your energy to fire a high-damage shot.
+   
+ - Overcharge is now possible without any energy storage structures, but because little energy can be stored without these the damage output is very low.
 
-A minimum of 2,000 stored energy is required to fire an overcharge.
-
-
-The minimum reload time between shots is 2 seconds.
-
-
-Firing an overcharge will consume all of your stored energy, up to a maximum of half your total energy storage capacity.
-
-For example, you might have 24,000 total energy storage capacity because you have built four energy storage structures (each providing 5,000 on top of the standard 4,000 from the ACU).
-If you currently have 15,000 energy in your energy bar, firing an overcharge will use 12,000 of that, leaving 3,000 in the bank.
-
-If you choose to fire again whilst you have just 3,000 left, all of this will be consumed because 3,000 is less than half of your 24,000 storage capacity.
-
-
-The more energy you spend on firing an overcharge, the more damage it deals. However, there is a maximum possible damage per shot of 25,000.
-
-Because the amount of energy used will relate to the amount that you have stored, you could fire overcharges frequently, dealing smaller amounts of damage each time, or wait and build up your energy to fire a high-damage shot.
-
-
-Overcharge is now possible without any energy storage structures, but because little energy can be stored without these the damage output is very low.
-
-
-Adding energy storage increases the potential damage output more than linearly, up to about 10 structures.
-
-Beyond 10 the returns in terms of extra damage output begin to deminish, with no additional benefit beyond around 20 structures.
-
-
+ - Adding energy storage increases the potential damage output exponentially, up to about 10 structures. Beyond this you enter a phase of diminishing returns up to around 20 structures.
 
 The following table shows some example figures:
-
 
 Energy Storages | Energy Spent | Damage Dealt | Reload Time | DPS
 ----------------|--------------|--------------|-------------|------
@@ -76,33 +62,52 @@ Energy Storages | Energy Spent | Damage Dealt | Reload Time | DPS
  17             | 44.5k        | 24.5k        | 6.12        | 4k
  22             | 57k          | 25k          | 6.23        | 4k
 
+ - Overcharging will never reach an effective DPS higher than 4k because of the increase in reload time.
 
-
-Overcharging will never reach an effective DPS higher than 4k, because of the
-increase in reload time.
-
-
+ - Damage is capped at 500 vs ACUs
+ 
 TODO:
-  - Cap dmg at 500 to commanders
   - Decide building damage reduction/cap
-
-
+  
 Economy
 -------
 
  - Mass Storage no longer provides mass production bonus to Mass Extractors.
 
-
-
 Smaller Changes
 ===============
 
- - ACU TML
-   Seraphim ACU tml made identical to UEF.
-
- - *Billy Nuke reload time 10*
- - *Nukes normalised*
-
+ - ACU TML Projectile HP reduction, AoE splash for Seraphim one
+	-The Seraphim TML is now identical to the UEF's one with the exception of a 0.2s delay before
+		firing, necessary for animation. AOE = 2 (From 3), MuzzleVelocity = 5 (From 10) (Affects the arc and
+		effective minimum range).
+	
+	-Billy had a 30 second reload time which severely limited the effectiveness of the weapon, especially
+		considering the extremely high cost. Reload reduced from 30 seconds to 10 seconds, providing you 
+		have the absurd economy necessary to fire that fast.
+	
+	-Additional changes while looking at this were made to all the game's nukes. Inner ring radius and damage
+		seems good across the board, but outer ring damage is all over the place. It's been re-done along the
+		following theory:
+			-Billy: Kills all T1, puts a serious dent in T2. Outer ring set to 1000 Damage (From 250). 
+				Inner ring damage reduced to 10000 (From 12000) to compensate.
+			-Submarines: Kills all T2, puts a serious dent in light T3 units. Outer ring left at 3000.
+			-Static Nukes: Kills all T2, light T3, and puts a serious dent in heavy T3 units. Outer ring set
+				to 5000 (From 500).
+			-Seraphim T4 Nuke: Kills all T3. Outer ring damage set to 10000 (From 7500).
+			
+ - Factory rolloff time normalized for engineers
+	-All Land Factories are already completely identical
+	-All Air Factories are now the same as each other, and as Land
+	-Request a speed buff be created to accelerate Engineers from the T3 UEF Factory to solve visual clipping, not essential
+	-Naval Factories completed and now produce at the same speed as the appropriate tech level Land or Air Factory
+	-Full T1 Cybran Air Factory folder included as hard overwrite to counteract the current FAF code, which can't be hooked out properly.
+	-Extremely odd bug with the T3 Naval Factories, they sometimes error out in the OnPause function, something to do with the
+		StopArmsMoving function, method SetGoal is a nil value apparently. No idea why this is happening, probably a hooking fail.
+	
+ - Increase beam range on transports for easier loading  
+	- Continental hard overwrite to get rid of buggy script last patch
+	- Drop height on all transports set to 7 (From 3)
 
 Bugfixes
 ========
@@ -110,6 +115,11 @@ Bugfixes
  - Adjacency for Mass Extractors and Mass Fabricators now only works when they are turned on.
 
 
+ 
+ 
+ 
+ 
+ 
 Changes to come
 ===============
 
@@ -147,35 +157,6 @@ Smaller Changes
 ---------------
 
  - *Different shield overspill mechanism, if toggling shields to prevent it proves viable*
-
- - ACU TML Projectile HP reduction, AoE splash for Sera one
-	-Complete. The Seraphim TML is now identical to the UEF's one with the exception of a 0.2s delay before
-		firing, necessary for animation. AOE = 2 (From 3), MuzzleVelocity = 5 (From 10) (Affects the arc and
-		effective minimum range).
-	
-	-Billy had a 30 second reload time which severely limited the effectiveness of the weapon, especially
-		considering the extremely high cost. Reload reduced from 30 seconds to 10 seconds, providing you 
-		have the absurd economy necessary to fire that fast.
-	
-	-Additional changes while looking at this were made to all the game's nukes. Inner ring radius and damage
-		seems good across the board, but outer ring damage is all over the place. It's been re-done along the
-		following thoery:
-			-Billy: Kills all T1, puts a serious dent in T2. Outer ring set to 1000 Damage (From 250). 
-				Inner ring damage reduced to 10000 (From 12000) to compensate.
-			-Submarines: Kills all T2, puts a serious dent in light T3 units. Outer ring left at 3000.
-			-Static Nukes: Kills all T2, light T3, and puts a serious dent in heavy T3 units. Outer ring set
-				to 5000 (From 500).
-			-Seraphim T4 Nuke: Kills all T3. Outer ring damage set to 10000 (From 7500).
-			
- - Factory rolloff time normalized for engineers
-	-All Land Factories are already completely identical
-	-All Air Factories are now the same as each other, and as Land
-	-Request a speed buff be created to accelerate Engineers from the T3 UEF Factory to solve visual clipping, not essential
-	-Naval Factories completed and now produce at the same speed as the appropriate tech level Land or Air Factory
-	-Full T1 Cybran Air Factory folder included as hard overwrite to counteract the current FAF code, which can't be hooked out properly.
-	-Extremely odd bug with the T3 Naval Factories, they sometimes error out in the OnPause function, something to do with the
-		StopArmsMoving function, method SetGoal is a nil value apparently. No idea why this is happening, probably a hooking fail.
-	
  - *Increase T2 factory upgrade cost by 5-20%*
  - Make T3 Arty a useful unit, if you only have one, check values, check if the reason it is useless is that it can’t break t2 shields, remove adjacency or rework it (add e cost for shots & pg lower it OR make pg lower rate of fire, e storage increase dmg i.e.)
  - *Repairing units cheaper*
@@ -211,13 +192,13 @@ Hotbuild
  - Allow cyb t3 engys to build ed5 shields (need to copy the hack from engymod to have increased buildtime & cost for those)
  - Add ed2 -> ed5 shield button/key
  - Improve hotstats (zooming/set shown times, maybe more stats, maybe remove some useless stats or improve UI)
- - Improve transport loading process for big armies
  - Add some order to load units in transports from factory, without unloading them after
  - Maybe not include, but make anyway: sniping mod, that calculates how many of your selected units you need to kill the target in one pass (if all hit)
  - Along with new UI, show more infos for observer (meaningful mass income from all players i.e.)
  - Include first person view
  - Improve and include netlag adjustment
  - Include minimap fix
+ - Improve transport loading process for big armies
 
 
 T3 Land & EXP
@@ -251,7 +232,6 @@ AIR
 
  - Add/increase rolloff time for air / delay before production 
  - Nerf speed for t3 planes as much as possible, ASF speed 18 as start, scout 22
- - Increase beam range on transports for easier loading 
 
 
 *Bomber*
